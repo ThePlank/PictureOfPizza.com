@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
+
+:root {
+    font-family:'Lora', 'Times New Roman', sans-serif;
+    --textcolorlight: #000000;
+    --textcolordark: #ffffff;
+    --bgcolorlight: #ffffff;
+    --bgcolordark: #252525;
+
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+#themetoggler {
+    position: fixed;
+    left: 100px;
+}
+
+.light {
+    color: var(--textcolorlight);
+    background-color: var(--bgcolorlight);
+}
+
+.light button .themetoggle::before {
+    fill: var(--textcolorlight);
+}
+
+.dark {
+    color: var(--textcolordark);
+    background-color: var(--bgcolordark);
+}
+
+.dark button svg {
+    fill: var(--textcolorlight);
+}
+
+header {
+    margin-top: 2em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    padding-right: 2em;
+    gap: 1em;
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+    transition: text-shadow 500ms ease-in-out;
+    text-shadow: none;
+}
+
+a:hover {
+    text-shadow: currentColor 0px 0px 5px;
+}
+
+.pizza {
+    margin-top: 20em;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-blend-mode: multiply; */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-top: 1em;
+    padding-bottom: 1em;
+    gap: 1em;
+}
+
+button {
+    cursor:pointer;
+    border: none;
+    padding: 0.3em;
+    /* background-color: rgba(255, 255, 255, 0.212); */
+    background-color: transparent;
+    transition: color 200ms ease-in-out;
+    color: rgb(223, 223, 223);
+}
+
+button:hover {
+    /* background-color: rgba(255, 255, 255, 0.274); */
+    color: white;
+}
+
+section {
+    display: flex;
+    margin-top: 20em;
+    /* padding-left: 10em; */
+    /* align-items: center; */
+    justify-content: center;
+    gap: 1em;
+}
