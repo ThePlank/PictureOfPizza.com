@@ -15,27 +15,14 @@ body {
     position: relative;
 }
 
-#themetoggler {
-    position: fixed;
-    left: 100px;
-}
-
 .light {
     color: var(--textcolorlight);
     background-color: var(--bgcolorlight);
 }
 
-.light button .themetoggle::before {
-    fill: var(--textcolorlight);
-}
-
 .dark {
     color: var(--textcolordark);
     background-color: var(--bgcolordark);
-}
-
-.dark button svg {
-    fill: var(--textcolorlight);
 }
 
 header {
@@ -51,7 +38,7 @@ header nav {
     display: flex;
     align-items: center;
     padding-right: 2em;
-    gap: 1em;
+    gap: 2em;
 }
 
 a {
@@ -77,6 +64,7 @@ footer {
     /* justify-content: center; */
     /* align-items: center; */
     /* background-blend-mode: multiply; */
+    margin-top: 1em;
     background-color: rgba(0, 0, 0, 0.2);
     padding-top: 1em;
     padding-bottom: 1em;
@@ -96,6 +84,31 @@ button {
 button:hover {
     /* background-color: rgba(255, 255, 255, 0.274); */
     color: white;
+}
+
+
+.dark #themeToggler {
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    bottom: 0pt;
+    color: rgb(200, 200, 200);
+}
+
+.dark #themeToggler:hover {
+    color: white;
+}
+
+.light #themeToggler {
+    background-attachment: scroll;
+    background-position: 0% 0%;
+    position: fixed;
+    bottom: 0pt;
+    color: black;
+}
+
+.light #themeToggler:hover {
+    color: rgb(24, 24, 24);
 }
 
 section {

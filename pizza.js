@@ -7,6 +7,9 @@ class Action {
     }
 }
 
+const darkColor = "#ffffff";
+const lightColor = "#000000";
+
 let things = [
     new Action('Put vegemite on it', 'vegit.png'),
     new Action('Put marmite on it', 'marmite.png'),
@@ -29,8 +32,11 @@ let things = [
     new Action('Put a Wii U on it', 'wiiuit.png'),
     new Action('Crash the pizza', 'crashit.png'),
     new Action('Plank-ify', 'plankit.png'),
-    new Action('End the madness', 'piza.png'),
+    new Action('Stone-ify', 'stoneit.png'),
+    new Action('Put a wumpus on it', 'wunpiza.png'),
 ]
+
+things.push(new Action('End the madness', 'piza.png'))
 
 let pizzaimage = document.getElementById("pizzaImage")
 let themeToggle = document.getElementById("themeToggler")
@@ -41,13 +47,15 @@ themeToggle.addEventListener('click', () => {
 
     localStorage.setItem('mode', (localStorage.getItem('mode') == "dark" ? "light" : "dark"))
 
-    
+    themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
 
     switch (localStorage.getItem('mode')) {
         case "dark":
+            themeToggle.innerText = "Toggle light theme"
             document.body.classList = "dark";
             break
         case "light":
+            themeToggle.innerText = "Toggle dark theme"
             document.body.classList = "light";
             break
     }
@@ -83,5 +91,17 @@ if (localStorage.getItem('mode') != null) {
             console.log("light?")
             document.body.classList = "light";
             break;
+    }
+    themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
+
+    switch (localStorage.getItem('mode')) {
+        case "dark":
+            themeToggle.innerText = "Toggle light theme"
+            document.body.classList = "dark";
+            break
+        case "light":
+            themeToggle.innerText = "Toggle dark theme"
+            document.body.classList = "light";
+            break
     }
 }
