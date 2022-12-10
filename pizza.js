@@ -1,6 +1,7 @@
 class Action {
     text = "funny";
     image = "funny";
+    
     constructor(text, image) {
         this.text = text;
         this.image = image;
@@ -37,71 +38,92 @@ let things = [
 ]
 
 things.push(new Action('End the madness', 'piza.png'))
+    
+let footerOpen = false
 
-let pizzaimage = document.getElementById("pizzaImage")
-let themeToggle = document.getElementById("themeToggler")
+// this is stupid as fuck.
+// why javascript?
 
-themeToggle.addEventListener('click', () => {
-    if (localStorage.getItem('mode') == null)
-        return localStorage.setItem('mode', "dark")
-
-    localStorage.setItem('mode', (localStorage.getItem('mode') == "dark" ? "light" : "dark"))
-
-    themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
-
-    switch (localStorage.getItem('mode')) {
-        case "dark":
-            themeToggle.innerText = "Toggle light theme"
-            document.body.classList = "dark";
-            break
-        case "light":
-            themeToggle.innerText = "Toggle dark theme"
-            document.body.classList = "light";
-            break
-    }
-})
-
-const addActionToFooter = (action, callback) => {
-    let buttonThing = document.createElement("button")
-    buttonThing.innerText = action
-    buttonThing.style = "color: currentColor;"
-    // buttonThing.id = id;
-    document.querySelector('footer').appendChild(buttonThing)
-    buttonThing.addEventListener('click', callback)
-}
-
-things.forEach((thing) => {
-    addActionToFooter(thing.text, () => {
-        pizzaimage.src = 'img/' + thing.image;
-        localStorage.setItem('lastestThing', thing.image)
+setTimeout(() => {
+    let pizzaimage = document.getElementById("pizzaImage")
+    let themeToggle = document.getElementById("themeToggler")
+    let footerButton = document.getElementById("footerButton")
+    let footer = document.getElementById("footer")
+    
+    themeToggle.addEventListener('click', () => {
+        if (localStorage.getItem('mode') == null)
+            return localStorage.setItem('mode', "dark")
+    
+        localStorage.setItem('mode', (localStorage.getItem('mode') == "dark" ? "light" : "dark"))
+    
+        themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
+    
+        switch (localStorage.getItem('mode')) {
+            case "dark":
+                themeToggle.innerText = "Toggle light theme"
+                document.body.classList = "dark";
+                break
+            case "light":
+                themeToggle.innerText = "Toggle dark theme"
+                document.body.classList = "light";
+                break
+        }
     })
-})
-
-if (localStorage.getItem('lastestThing') != null)
-    pizzaimage.src = 'img/' + localStorage.getItem('lastestThing')
-
-if (localStorage.getItem('mode') != null) {
-    console.log(localStorage.getItem('mode'))
-    switch (localStorage.getItem('mode')) {
-        case "dark":
-            console.log("dark?")
-            document.body.classList = "dark";
-            break;
-        case "light":
-            console.log("light?")
-            document.body.classList = "light";
-            break;
+    
+    const addActionToFooter = (action, callback) => {
+        let buttonThing = document.createElement("button")
+        buttonThing.innerText = action
+        buttonThing.style = "color: currentColor;"
+        // buttonThing.id = id;
+        document.querySelector('footer').appendChild(buttonThing)
+        buttonThing.addEventListener('click', callback)
     }
-    themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
-
-    switch (localStorage.getItem('mode')) {
-        case "dark":
-            themeToggle.innerText = "Toggle light theme"
-            document.body.classList = "dark";
-            break
-        case "light":
-            themeToggle.innerText = "Toggle dark theme"
-            document.body.classList = "light";
-            break
+    
+    things.forEach((thing) => {
+        addActionToFooter(thing.text, () => {
+            pizzaimage.src = 'img/pizza/' + thing.image;
+            localStorage.setItem('lastestThing', thing.image)
+        })
+    })
+    
+    if (localStorage.getItem('lastestThing') != null)
+        pizzaimage.src = 'img/pizza/' + localStorage.getItem('lastestThing')
+    
+    if (localStorage.getItem('mode') != null) {
+        console.log(localStorage.getItem('mode'))
+        switch (localStorage.getItem('mode')) {
+            case "dark":
+                console.log("dark?")
+                document.body.classList = "dark";
+                break;
+            case "light":
+                console.log("light?")
+                document.body.classList = "light";
+                break;
+        }
+        themeToggle.style = "fill: " + (localStorage.getItem('mode') == "dark" ? darkColor : lightColor)
+    
+        switch (localStorage.getItem('mode')) {
+            case "dark":
+                themeToggle.innerText = "Toggle light theme"
+                document.body.classList = "dark";
+                break
+            case "light":
+                themeToggle.innerText = "Toggle dark theme"
+                document.body.classList = "light";
+                break
+        }
     }
-}
+    
+    
+    footerButton.addEventListener('click', (event) => {
+        footerOpen = !footerOpen
+    
+        if (footerOpen) {
+            footer.classList.toggle("footerHidden")
+        } else {
+            footer.classList.toggle("footerHidden")
+        }
+    })
+}, 1)
+
