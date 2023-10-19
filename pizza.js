@@ -41,10 +41,7 @@ things.push(new Action('End the madness', 'piza.png'))
     
 let footerOpen = false
 
-// this is stupid as fuck.
-// why javascript?
-
-setTimeout(() => {
+document.onload = () => {
     let pizzaimage = document.getElementById("pizzaImage")
     let themeToggle = document.getElementById("themeToggler")
     let footerButton = document.getElementById("footerButton")
@@ -125,5 +122,4 @@ setTimeout(() => {
             footer.classList.toggle("footerHidden")
         }
     })
-}, 1)
-
+}
